@@ -58,7 +58,7 @@ services:
       BLOCKSCOUT_HOST: 'gw-explorer.nervosdao.community'
       SHOW_TESTNET_LABEL: 'true'
     ports:
-      - 0.0.0.0:4000:4000
+      - 0.0.0.0:80:4000
     volumes:
       - logs_data:/app/logs/
     logging:
