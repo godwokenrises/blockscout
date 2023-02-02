@@ -41,7 +41,7 @@ services:
       context: ..
       dockerfile: ./docker/Dockerfile
       args:
-        SECRET_KEY_BASE: 'DigBd6xC1u6dMa1TyQ4UkG1yaltQATbGg6qapfWwCkvLyUYnWMlwIzG9XDY0aP0R'
+        SECRET_KEY_BASE: 'eQrLcUBRvQIlqAdmbu9ADOH2JfrtEWX6IHwODLOwEIaX0uRBJAbGT4XzCWx2KPAy'
     restart: always
     container_name: 'blockscout'
     command: bash -c "bin/blockscout eval \"Elixir.Explorer.ReleaseTasks.create_and_migrate()\" && bin/blockscout start"
@@ -51,13 +51,13 @@ services:
     env_file:
       - ./envs/common-godwoken.env
     environment:
-      ETHEREUM_JSONRPC_HTTP_URL: https://godwoken-testnet-v1.ckbapp.dev
-      CHAIN_ID: '71401'
+      ETHEREUM_JSONRPC_HTTP_URL: https://v1.mainnet.godwoken.io/rpc
+      CHAIN_ID: '71402'
       SUPPORTED_CHAINS: '[ { "title": "Godwoken V1 Testnet", "url": "https://testnet-explorer.godwoken.io", "test_net?": true } ]'
-      EXTERNAL_APPS: '[ { "title": "Faucet", "url": "https://homura.github.io/light-godwoken" }, { "title": "Aggron Explorer", "url": "https://v1.aggron.gwscan.com" } ]'
-      BLOCKSCOUT_HOST: 'testnet-explorer.godwoken.io'
+      EXTERNAL_APPS: '[ { "title": "Testnet", "url": "https://testnet-explorer.godwoken.io", "test_net?": true }, { "title": "Mainnet", "url": "https://mainnet-explorer.godwoken.io" } ]'
+      BLOCKSCOUT_HOST: 'mainnet-explorer.godwoken.io'
       SHOW_TESTNET_LABEL: 'true'
-      SUBNETWORK: Testnet
+      SUBNETWORK: Mainnet
     ports:
       - 0.0.0.0:80:4000
     volumes:
